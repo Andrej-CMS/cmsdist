@@ -1,4 +1,4 @@
-### RPM cms data-RecoBTag-CTagging V01-00-03
+### RPM cms data-RecoBTag-CTagging V01-00-02
 
 %prep
 

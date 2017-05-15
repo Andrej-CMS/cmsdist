@@ -1,8 +1,8 @@
-### RPM lcg root 6.08.06
+### RPM lcg root 6.08.04
 ## INITENV +PATH PYTHONPATH %{i}/lib
 ## INITENV SET ROOTSYS %{i}
-%define tag 18ebc20755fc6edb871dc2ba156ee046d615a084
-%define branch cms/a463592
+%define tag 09830cb2e4824cb706b253f5024d25c85f607162
+%define branch cms/0b85b79
 %define github_user cms-sw
 Source: git+https://github.com/%{github_user}/root.git?obj=%{branch}/%{tag}&export=%{n}-%{realversion}&output=/%{n}-%{realversion}-%{tag}.tgz
 
@@ -45,7 +45,7 @@ cmake ../%{n}-%{realversion} \
   -DCMAKE_INSTALL_PREFIX="%{i}" \
   -DCMAKE_C_COMPILER=gcc \
   -DCMAKE_CXX_COMPILER=g++ \
-  -DCMAKE_Fortran_COMPILER=gfortran \
+  -DCMAKE_F_COMPILER=gfortran \
   -DCMAKE_LINKER=ld \
   -Dfail-on-missing=ON \
   -Dgnuinstall=OFF \
@@ -167,7 +167,6 @@ make %{makeprocesses} -l $(getconf _NPROCESSORS_ONLN) install
 
 find %{i} -type f -name '*.py' | xargs chmod -x
 grep -R -l '#!.*python' %{i} | xargs chmod +x
-perl -p -i -e "s|#!/bin/perl|#!/usr/bin/env perl|" %{i}/bin/memprobe
 
 %post
 %{relocateConfig}etc/cling/llvm/Config/llvm-config.h

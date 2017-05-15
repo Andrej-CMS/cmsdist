@@ -45,7 +45,6 @@ Requires: llvm-gcc-toolfile
 Requires: vdt-toolfile
 Requires: tinyxml-toolfile
 Requires: md5-toolfile
-Requires: davix-toolfile
 
 %if %isamd64
 %if %isslc

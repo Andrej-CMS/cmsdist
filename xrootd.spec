@@ -1,21 +1,16 @@
-### RPM external xrootd 4.6.1.RC2
+### RPM external xrootd 4.5.0
 ## INITENV +PATH LD_LIBRARY_PATH %i/lib64
-%define tag 10ba4d7adfc5c66f33bcc77cf38ca45f426cb041
-%define branch stable-4.6.x
-
-%define github_user xrootd
+%define tag af6aebbbbe7da7fd89f3698c1e485a79a5990037
+%define branch cms/v%{realversion}
+%define github_user cms-externals
 Source: git+https://github.com/%github_user/xrootd.git?obj=%{branch}/%{tag}&export=%{n}-%{realversion}&output=/%{n}-%{realversion}.tgz
-
-Patch1: xrootd-add-version
 
 BuildRequires: cmake
 Requires: zlib
 Requires: openssl
-Requires: python
 
 %prep
 %setup -n %n-%{realversion}
-%patch1 -p1
 
 # need to fix these from xrootd git
 perl -p -i -e 's|^#!.*perl(.*)|#!/usr/bin/env perl$1|' src/XrdMon/cleanup.pl
@@ -41,9 +36,7 @@ cmake ../ \
   -DENABLE_KRB5=TRUE \
   -DENABLE_READLINE=FALSE \
   -DENABLE_CRYPTO=TRUE \
-  -DCMAKE_SKIP_RPATH=TRUE \
-  -DENABLE_PYTHON=TRUE \
-  -DCMAKE_PREFIX_PATH="${PYTHON_ROOT}"
+  -DCMAKE_SKIP_RPATH=TRUE
 
 # Use makeprocess macro, it uses compiling_processes defined by
 # build configuration file or build argument

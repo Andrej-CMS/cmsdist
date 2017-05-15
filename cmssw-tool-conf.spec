@@ -1,4 +1,4 @@
-### RPM cms cmssw-tool-conf 38.0
+### RPM cms cmssw-tool-conf 37.0
 ## NOCOMPILER
 # With cmsBuild, change the above version only when a new
 # tool is added
@@ -87,12 +87,16 @@ Requires: graphviz-toolfile
 Requires: valgrind-toolfile
 Requires: py2-matplotlib-toolfile
 Requires: py2-numpy-toolfile
+Requires: py2-pandas-toolfile
+Requires: py2-scipy-toolfile
 Requires: cmsswdata-toolfile
 Requires: py2-sqlalchemy-toolfile
 Requires: py2-pygithub-toolfile
 Requires: py2-dablooms-toolfile
 Requires: py2-dxr-toolfile
+Requires: py2-pysqlite-toolfile
 Requires: py2-PyYAML-toolfile
+Requires: py2-root_numpy-toolfile
 Requires: py2-h5py-toolfile
 Requires: hdf5-toolfile
 Requires: rivet-toolfile
@@ -104,7 +108,6 @@ Requires: fftjet-toolfile
 Requires: lapack-toolfile
 Requires: pyminuit2-toolfile
 Requires: professor-toolfile
-Requires: professor2-toolfile
 Requires: xz-toolfile
 Requires: protobuf-toolfile
 Requires: lcov-toolfile
@@ -148,11 +151,10 @@ Requires: tinyxml-toolfile
 Requires: scons-toolfile
 Requires: md5-toolfile
 Requires: madgraph5amcatnlo-toolfile
+Requires: histogrammar-toolfile
 Requires: py2-pippkgs-toolfile
 Requires: py2-pippkgs_depscipy-toolfile
-Requires: dasgoclient
-Requires: OpenBLAS-toolfile
-
+#still a work in progress Requires: py2-notebook
 
 # Only for Linux platform.
 %if %islinux
